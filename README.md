@@ -5,7 +5,7 @@ I designed this to be used with the kiosk app and vertically. If you want to use
 
 To change the text or file location for each track adjust the "songList" array in the .js file. 
 
-If you change the quantity of files you will also have to adjust the "chaptersNumber" variable. For each audio file you will need a div in the html with an id of the number. For example, if you have three files you will need &lt;div id ="1">&lt;div id ="2">' and &lt;div id ="3">'.
+If you change the quantity of files you will also have to adjust the "chaptersNumber" variable. For each audio file you will need a div in the html with an id of the number. For example, if you have three files you will need &lt;div id ="1">&lt;div id ="2"> and &lt;div id ="3">.
   
 To change the background image, replace the backgroung.jpg file with your desired file. 
 
