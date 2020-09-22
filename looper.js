@@ -1,13 +1,11 @@
 
-var chaptersNumber = 7;
+var chaptersNumber = 5;
 var songList  = [
-    {text:"Chapter I", source:"audio/1.mp3"},
-    {text:"Chapter II", source:"audio/2.mp3"},
-    {text:"Chapter III", source:"audio/3.mp3"},
-    {text:"Chapter IV", source:"audio/4.mp3"},
-    {text:"Chapter V", source:"audio/5.mp3"},
-    {text:"Chapter VI", source:"audio/6.mp3"},
-    {text:"Chapter VII", source:"audio/7.mp3"}
+    {text:"Track 1", source:"audio/1.mp3"},
+    {text:"Track 2", source:"audio/2.mp3"},
+    {text:"Track 3", source:"audio/3.mp3"},
+    {text:"Track 4", source:"audio/4.mp3"},
+    {text:"Track 5", source:"audio/5.mp3"}
 ];
 
 var currentSong = 0;
@@ -53,7 +51,7 @@ function initial(){
         audioSource.type = "audio/mpeg";
         cChapter.audio.appendChild(audioSource);
     }
-    songList[0].audio.autoplay = true;
+    //songList[0].audio.autoplay = true;
 }
 
 
@@ -62,6 +60,44 @@ function pauseAll() {
       for(let i=0; i<sounds.length; i++) {
           sounds[i].pause();
           sounds[i].currentTime=0;
+        }    
+    }
+
+var mute = false;
+function muteAll() {
+      var sounds = document.getElementsByTagName('audio');
+      for(let i=0; i<sounds.length; i++) {
+          if (!mute){
+              sounds[i].muted=true;
+              console.log('mute')
+          }
+          else{
+              sounds[i].muted=false;
+              console.log('unmute')
+          }
+          
+
+        }   
+    mute = !mute;
+    if (!mute){
+    document.getElementById('muteText').innerHTML = 'MUTE'
+        document.getElementById('muteText').style.color = 'white'
+        document.getElementById('mute').style.display = 'none'
+        document.getElementById('unmute').style.display = 'inline-block'
+    }
+    else{
+        document.getElementById('mute').style.display = 'inline-block'
+        document.getElementById('unmute').style.display = 'none'
+        document.getElementById('muteText').style.color = 'red'
+       document.getElementById('muteText').innerHTML = 'UNMUTE' 
+    }
+    
+    }
+
+function unmuteAll() {
+      var sounds = document.getElementsByTagName('audio');
+      for(let i=0; i<sounds.length; i++) {
+          sounds[i].muted=false;
         }    
     }
 
